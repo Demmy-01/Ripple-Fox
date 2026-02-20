@@ -7,18 +7,19 @@ import WhatWeDesignSection from '../components/WhatWeDesignSection';
 import OurMethodSection from '../components/OurMethodSection';
 import WhoWeWorkWithSection from '../components/WhoWeWorkWithSection';
 import TestimonialsSection from '../components/TestimonialsSection';
+import InstitutionalCommitmentSection from '../components/InstitutionalCommitmentSection';
+import FounderSection from '../components/FounderSection';
+import CTASection from '../components/CTASection';
+import ContactSection from '../components/ContactSection';
+import Footer from '../components/Footer';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
 export default function Home() {
   useScrollReveal();
 
   return (
-    <div className="bg-[#060d1f]">
-
-      {/* ── Page intro overlay (fades out on load) ── */}
+    <>
       <div id="page-intro" aria-hidden="true" />
-
-      {/* ── Transparent Navbar (fixed, shared across sections) ── */}
       <Navbar />
 
       {/* ════════════════ HERO SECTION ════════════════ */}
@@ -101,6 +102,21 @@ export default function Home() {
       {/* ════════════════ TESTIMONIALS SECTION ════════════════ */}
       <TestimonialsSection />
 
-    </div>
+      {/* ════════════════ INSTITUTIONAL COMMITMENT SECTION ════════════════ */}
+      <InstitutionalCommitmentSection />
+
+      {/* ════════════════ FOUNDER SECTION ════════════════ */}
+      <FounderSection />
+
+      {/* ════════════════ CTA SECTION ════════════════ */}
+      <CTASection />
+
+      {/* ════════════════ CONTACT SECTION ════════════════ */}
+      <ContactSection />
+
+      {/* ════════════════ FOOTER ════════════════ */}
+      <Footer />
+
+    </>
   );
 }

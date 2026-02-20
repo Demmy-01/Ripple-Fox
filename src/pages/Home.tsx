@@ -4,6 +4,9 @@ import Navbar from '../components/Navbar';
 import { RequestEngagementButton, DownloadBriefButton } from '../components/Buttons';
 import AboutSection from '../components/AboutSection';
 import WhatWeDesignSection from '../components/WhatWeDesignSection';
+import OurMethodSection from '../components/OurMethodSection';
+import WhoWeWorkWithSection from '../components/WhoWeWorkWithSection';
+import TestimonialsSection from '../components/TestimonialsSection';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
 export default function Home() {
@@ -88,6 +91,15 @@ export default function Home() {
 
       {/* ════════════════ WHAT WE DESIGN SECTION ════════════════ */}
       <WhatWeDesignSection />
+
+      {/* ════════════════ OUR METHOD SECTION ════════════════ */}
+      <OurMethodSection />
+
+      {/* ════════════════ WHO WE WORK WITH SECTION ════════════════ */}
+      <WhoWeWorkWithSection />
+
+      {/* ════════════════ TESTIMONIALS SECTION ════════════════ */}
+      <TestimonialsSection />
 
     </div>
   );

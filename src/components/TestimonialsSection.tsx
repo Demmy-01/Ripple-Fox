@@ -1,5 +1,6 @@
 import ellipse21 from '../assets/Ellipse-21.png';
 import ellipse22 from '../assets/Ellipse-22.png';
+import FloatingDots from './FloatingDots';
 
 const CARD_BG = '#0d3354';
 
@@ -7,29 +8,29 @@ export default function TestimonialsSection() {
   return (
     <section
       id="testimonials"
-      className="bg-white py-20 overflow-hidden"
+      className="relative bg-white py-20 overflow-hidden"
     >
+      <FloatingDots color="blue" />
       {/* Heading — padded, aligned to content grid */}
       <div className="px-6 md:px-16 lg:px-24 mb-16" data-reveal="up" data-delay="100">
         <div className="mx-auto max-w-screen-xl">
-          <h2 className="text-2xl font-extrabold leading-snug text-[#0d3354] md:text-3xl">
+          <h2 className="text-2xl font-extrabold leading-snug text-[#0d3354] md:text-3xl text-center md:text-left">
             Trusted by Leadership Teams<br />Navigating Complex Delivery
           </h2>
         </div>
       </div>
 
       {/* Cards — bleed to the page edges */}
-      <div className="flex flex-col gap-8">
+      <div className="flex flex-col gap-8 px-6 md:px-0">
 
         {/* Card 1 — right-aligned, right edge flush with page */}
         <div
-          className="ml-auto"
-          style={{ width: '72%' }}
+          className="w-full md:w-[72%] mx-auto md:ml-auto md:mr-0"
           data-reveal="right"
           data-delay="200"
         >
           <div
-            className="flex flex-col md:flex-row items-center rounded-l-2xl overflow-hidden"
+            className="testimonial-card flex flex-col items-center text-center md:flex-row md:items-center md:text-left md:rounded-l-2xl rounded-2xl overflow-hidden"
             style={{ background: CARD_BG }}
           >
             {/* Circle logo — padded inside */}
@@ -60,13 +61,12 @@ export default function TestimonialsSection() {
 
         {/* Card 2 — left-aligned, left edge flush with page */}
         <div
-          className="mr-auto"
-          style={{ width: '72%' }}
+          className="w-full md:w-[72%] mx-auto md:mr-auto md:ml-0"
           data-reveal="left"
           data-delay="300"
         >
           <div
-            className="flex flex-col md:flex-row items-center rounded-r-2xl overflow-hidden"
+            className="testimonial-card flex flex-col-reverse items-center text-center md:flex-row md:items-center md:text-left md:rounded-r-2xl rounded-2xl overflow-hidden"
             style={{ background: CARD_BG }}
           >
             {/* Text */}

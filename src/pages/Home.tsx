@@ -27,8 +27,8 @@ export default function Home() {
 
         {/* Background image */}
         <div
-          className="absolute inset-0 bg-cover bg-right bg-no-repeat"
-          style={{ backgroundImage: `url(${heroBackground})`, backgroundAttachment: 'fixed' }}
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat hero-bg"
+          style={{ backgroundImage: `url(${heroBackground})` }}
           aria-hidden="true"
         />
 

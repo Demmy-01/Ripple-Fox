@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import FloatingDots from './FloatingDots';
 
 const FORM_BG = '#2d6391';
 
@@ -58,8 +59,9 @@ export default function ContactSection() {
   return (
     <section
       id="contact-form"
-      className="bg-white px-6 py-20 md:px-16 lg:px-24"
+      className="relative bg-white px-6 py-20 md:px-16 lg:px-24 overflow-hidden"
     >
+      <FloatingDots color="blue" />
       <div className="mx-auto max-w-screen-xl">
         <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:gap-20">
 

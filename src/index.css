@@ -118,3 +118,472 @@
   opacity: 1;
   transform: translate(0, 0);
 }
+
+/* ── About section image float ── */
+@keyframes float-ud {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-3rem);
+  }
+}
+
+.about-img {
+  animation: float-ud 3s ease-in-out infinite;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+}
+
+.about-img:hover {
+  /* pause the float and lift + glow on hover */
+  animation-play-state: paused;
+  transform: translateY(-6px) scale(0.9);
+  box-shadow: 0 24px 48px rgba(13, 51, 84, 0.35);
+  filter: brightness(1.08);
+}
+
+/* ── What We Design — card hover ── */
+@keyframes border-spin {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.wwd-card {
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+    box-shadow 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  will-change: transform;
+}
+
+.wwd-card::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(270deg, #1F4E79, #3b82f6, #0ea5e9, #1F4E79);
+  background-size: 400% 400%;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+  animation: border-spin 3s ease infinite;
+}
+
+.wwd-card:hover::before {
+  opacity: 1;
+}
+
+.wwd-card:hover {
+  transform: translateY(-8px) scale(1.015);
+  box-shadow: 0 32px 64px rgba(13, 51, 84, 0.25);
+}
+
+/* inner wrapper sits above the glow pseudo-element */
+.wwd-card-inner {
+  position: relative;
+  z-index: 1;
+  border-radius: inherit;
+  overflow: hidden;
+}
+
+/* ── What We Design — image hover ── */
+.wwd-img-wrap {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.75rem;
+}
+
+.wwd-img-wrap img {
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1),
+    filter 0.5s ease;
+  will-change: transform;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* shimmer overlay */
+.wwd-img-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+      transparent 40%,
+      rgba(31, 78, 121, 0.7) 100%);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.wwd-img-wrap:hover img {
+  transform: scale(1.08);
+  filter: brightness(0.85) saturate(1.2);
+}
+
+.wwd-img-wrap:hover::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Our Method — step card hover ── */
+.method-card {
+  background: #f0f2f5;
+  border: 1px solid #e2e6ec;
+  border-radius: 16px;
+  padding: 20px 22px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18), 0 2px 8px rgba(0, 0, 0, 0.10);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition:
+    transform 0.65s cubic-bezier(0.23, 1, 0.32, 1),
+    box-shadow 0.65s cubic-bezier(0.23, 1, 0.32, 1),
+    border-color 0.65s ease,
+    background 0.65s ease;
+}
+
+/* Accent bar sweeps up from bottom on hover */
+.method-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, #3b82f6, #1F4E79);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  border-radius: 16px 0 0 16px;
+}
+
+.method-card:hover::before {
+  transform: scaleY(1);
+}
+
+.method-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 20px 48px rgba(13, 51, 84, 0.22), 0 4px 12px rgba(0, 0, 0, 0.10);
+  border-color: #1F4E79;
+  background: #ffffff;
+}
+
+/* Number brightens on hover */
+.method-card:hover .method-num {
+  color: #1F4E79;
+}
+
+/* ── Who We Work With — image hover ── */
+.wwww-img {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1),
+    box-shadow 0.5s ease;
+}
+
+.wwww-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+    filter 0.6s ease;
+  display: block;
+}
+
+.wwww-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(13, 33, 55, 0.75) 100%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.wwww-img:hover img {
+  transform: scale(1.1);
+  filter: brightness(0.9) saturate(1.15);
+}
+
+.wwww-img:hover::after {
+  opacity: 1;
+}
+
+.wwww-img:hover {
+  box-shadow: 0 0 0 2px rgba(126, 184, 247, 0.5), 0 20px 48px rgba(0, 0, 0, 0.4);
+  transform: translateY(-4px);
+}
+
+/* ── Who We Work With — client row ── */
+.wwww-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition:
+    background 0.5s ease,
+    border-color 0.5s ease,
+    transform 0.5s cubic-bezier(0.23, 1, 0.32, 1),
+    box-shadow 0.5s ease;
+  backdrop-filter: blur(4px);
+}
+
+/* shimmer sweep on hover */
+.wwww-row::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(126, 184, 247, 0.08), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.7s ease;
+}
+
+.wwww-row:hover::before {
+  transform: translateX(100%);
+}
+
+.wwww-row:hover {
+  background: rgba(126, 184, 247, 0.1);
+  border-color: rgba(126, 184, 247, 0.35);
+  transform: translateX(6px);
+  box-shadow: 0 4px 24px rgba(13, 51, 84, 0.4);
+}
+
+/* Glow pulse dot */
+.wwww-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #7eb8f7;
+  flex-shrink: 0;
+  box-shadow: 0 0 6px #7eb8f7;
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+.wwww-row:hover .wwww-dot {
+  box-shadow: 0 0 0 4px rgba(126, 184, 247, 0.25), 0 0 12px #7eb8f7;
+  transform: scale(1.3);
+}
+
+/* Icon */
+.wwww-icon {
+  font-size: 16px;
+  flex-shrink: 0;
+  transition: transform 0.4s ease;
+}
+
+.wwww-row:hover .wwww-icon {
+  transform: scale(1.2) rotate(-8deg);
+}
+
+/* Label */
+.wwww-label {
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.75);
+  flex: 1;
+  transition: color 0.4s ease;
+}
+
+.wwww-row:hover .wwww-label {
+  color: #ffffff;
+}
+
+/* Arrow slides in */
+.wwww-arrow {
+  font-size: 16px;
+  color: #7eb8f7;
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  flex-shrink: 0;
+}
+
+.wwww-row:hover .wwww-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── Testimonials — card hover ── */
+.testimonial-card {
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1),
+    background 0.5s ease,
+    box-shadow 0.5s ease;
+  cursor: pointer;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-6px);
+  background: #15426b !important;
+  /* Lighter navy */
+  box-shadow: 0 24px 48px rgba(13, 51, 84, 0.25);
+}
+
+.testimonial-card img {
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  will-change: transform;
+}
+
+.testimonial-card:hover img {
+  transform: scale(1.08);
+}
+
+/* ── Founder Section — experience list hover ── */
+.founder-exp-item {
+  position: relative;
+  cursor: pointer;
+  padding-left: 0;
+  transition: padding-left 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Background highlight sweep */
+.founder-exp-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  left: -24px;
+  right: -24px;
+  background: linear-gradient(90deg, rgba(31, 78, 121, 0.06), transparent);
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.founder-exp-item:hover::before {
+  opacity: 1;
+}
+
+.founder-exp-item:hover {
+  padding-left: 12px;
+}
+
+/* Text colour shift */
+.founder-exp-text {
+  display: inline-block;
+  transition: color 0.4s ease, letter-spacing 0.4s ease;
+}
+
+.founder-exp-item:hover .founder-exp-text {
+  color: #1F4E79 !important;
+  letter-spacing: 0.01em;
+}
+
+/* Underline expands to full width */
+.founder-exp-bar {
+  margin-top: 10px;
+  height: 2px;
+  width: 260px;
+  max-width: 100%;
+  border-radius: 2px;
+  transition: width 0.5s cubic-bezier(0.23, 1, 0.32, 1),
+    background 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.founder-exp-item:hover .founder-exp-bar {
+  width: 40%;
+  background: #1F4E79 !important;
+  box-shadow: 0 0 8px rgba(31, 78, 121, 0.4);
+}
+
+/* ── Founder Section — floating dot keyframes ── */
+@keyframes dot-float-a {
+
+  0%,
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+
+  33% {
+    transform: translateY(-14px) scale(1.08);
+  }
+
+  66% {
+    transform: translateY(8px) scale(0.95);
+  }
+}
+
+@keyframes dot-float-b {
+
+  0%,
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+
+  33% {
+    transform: translateY(12px) scale(0.94);
+  }
+
+  66% {
+    transform: translateY(-9px) scale(1.06);
+  }
+}
+
+.dot-float-a {
+  animation: dot-float-a 5s ease-in-out infinite;
+}
+
+.dot-float-b {
+  animation: dot-float-b 6.5s ease-in-out infinite;
+}
+
+/* ── CTA Section — button hover ── */
+.cta-btn {
+  background: #ffffff;
+  color: #0a1128;
+  transition:
+    background 0.5s ease,
+    color 0.5s ease,
+    transform 0.5s cubic-bezier(0.23, 1, 0.32, 1),
+    box-shadow 0.5s ease,
+    letter-spacing 0.4s ease;
+  cursor: pointer;
+}
+
+.cta-btn:hover {
+  background: transparent;
+  color: #ffffff;
+  transform: scale(1.07);
+  box-shadow: 0 0 32px rgba(255, 255, 255, 0.25), 0 8px 24px rgba(0, 0, 0, 0.2);
+  letter-spacing: 0.03em;
+}
+
+.cta-btn-arrow {
+  display: inline-block;
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.cta-btn:hover .cta-btn-arrow {
+  transform: translateX(6px);
+}
+
+/* ── Hero background: no fixed-attachment on mobile (breaks iOS/Android) ── */
+.hero-bg {
+  background-attachment: scroll;
+  background-position: center;
+}
+
+@media (min-width: 768px) {
+  .hero-bg {
+    background-attachment: fixed;
+    background-position: right center;
+  }
+}

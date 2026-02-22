@@ -1,5 +1,6 @@
 import rect8 from '../assets/Rectangle-8.png';
 import rect9 from '../assets/Rectangle-9.png';
+import FloatingDots from './FloatingDots';
 
 export default function AboutSection() {
   return (
@@ -7,6 +8,7 @@ export default function AboutSection() {
       id="about"
       className="relative bg-white px-6 py-24 md:px-16 lg:px-24 overflow-hidden"
     >
+      <FloatingDots color="blue" />
       <div className="mx-auto max-w-screen-xl">
 
         {/* ── Pill label ── */}
@@ -52,13 +54,14 @@ export default function AboutSection() {
             <img
               src={rect9}
               alt="Infrastructure grid visualization"
-              className="w-36 rounded-3xl shadow-2xl md:w-44 mt-16"
+              className="about-img w-36 rounded-3xl shadow-2xl md:w-44 mt-16"
             />
             {/* Rectangle-8 (blue gradient) — right, at top */}
             <img
               src={rect8}
               alt="Blue gradient panel"
-              className="w-36 rounded-3xl shadow-xl md:w-44"
+              className="about-img w-36 rounded-3xl shadow-xl md:w-44"
+              style={{ animationDelay: '0.5s' }}
             />
           </div>
         </div>

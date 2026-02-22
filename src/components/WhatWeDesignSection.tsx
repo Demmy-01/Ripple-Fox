@@ -3,6 +3,7 @@ import slide1 from '../assets/slide-1.png';
 import slide2 from '../assets/slide-2.png';
 import slide3 from '../assets/slide-3.png';
 import slide4 from '../assets/slide-4.png';
+import FloatingDots from './FloatingDots';
 
 const slides = [
   {
@@ -50,7 +51,8 @@ export default function WhatWeDesignSection() {
   const slide = slides[current];
 
   return (
-    <section id="services" className="bg-white px-6 py-20 md:px-16 lg:px-24">
+    <section id="services" className="relative bg-white px-6 py-20 md:px-16 lg:px-24 overflow-hidden">
+      <FloatingDots color="blue" />
       <div className="mx-auto max-w-screen-xl">
 
         {/* ── Pill label ── */}
@@ -64,46 +66,50 @@ export default function WhatWeDesignSection() {
         <div
           data-reveal="up"
           data-delay="200"
-          className="rounded-2xl overflow-hidden shadow-sm transition-colors duration-300"
+          className="wwd-card rounded-2xl"
           style={{
             background: slide.dark ? '#1F4E79' : '#ffffff',
             border: slide.dark ? 'none' : '1px solid #e5e7eb',
           }}
         >
           <div
-            className={`flex flex-col items-center gap-0 ${slide.dark ? 'md:flex-row-reverse' : 'md:flex-row'}`}
-            style={{
-              opacity: animating ? 0 : 1,
-              transform: animating ? 'translateX(20px)' : 'translateX(0)',
-              transition: 'opacity 0.3s ease, transform 0.3s ease',
-            }}
+            className="wwd-card-inner rounded-2xl"
+            style={{ background: slide.dark ? '#1F4E79' : '#ffffff' }}
           >
-            {/* Image side */}
-            <div className="w-full md:w-2/5 flex-shrink-0 p-6 md:p-8">
-              <div className="rounded-xl overflow-hidden bg-gray-100 shadow-inner aspect-[4/3]">
-                <img
-                  key={current}
-                  src={slide.image}
-                  alt={slide.title}
-                  className="w-full h-full object-cover"
-                />
+            <div
+              className={`flex flex-col items-center gap-0 ${slide.dark ? 'md:flex-row-reverse' : 'md:flex-row'}`}
+              style={{
+                opacity: animating ? 0 : 1,
+                transform: animating ? 'translateX(20px)' : 'translateX(0)',
+                transition: 'opacity 0.3s ease, transform 0.3s ease',
+              }}
+            >
+              {/* Image side */}
+              <div className="w-full md:w-2/5 flex-shrink-0 p-6 md:p-8">
+                <div className="wwd-img-wrap bg-gray-100 shadow-inner aspect-[4/3]">
+                  <img
+                    key={current}
+                    src={slide.image}
+                    alt={slide.title}
+                  />
+                </div>
               </div>
-            </div>
 
-            {/* Text side */}
-            <div className="w-full md:w-3/5 px-6 pb-8 pt-2 md:px-12 md:py-12">
-              <h3
-                className="mb-4 text-3xl font-bold leading-tight md:text-4xl"
-                style={{ color: slide.dark ? '#ffffff' : '#060d1f' }}
-              >
-                {slide.title}
-              </h3>
-              <p
-                className="text-sm leading-relaxed md:text-base"
-                style={{ color: slide.dark ? 'rgba(255,255,255,0.7)' : '#3b82f6' }}
-              >
-                {slide.description}
-              </p>
+              {/* Text side */}
+              <div className="w-full md:w-3/5 px-6 pb-8 pt-2 md:px-12 md:py-12">
+                <h3
+                  className="mb-4 text-3xl font-bold leading-tight md:text-4xl"
+                  style={{ color: slide.dark ? '#ffffff' : '#060d1f' }}
+                >
+                  {slide.title}
+                </h3>
+                <p
+                  className="text-sm leading-relaxed md:text-base"
+                  style={{ color: slide.dark ? 'rgba(255,255,255,0.7)' : '#3b82f6' }}
+                >
+                  {slide.description}
+                </p>
+              </div>
             </div>
           </div>
         </div>

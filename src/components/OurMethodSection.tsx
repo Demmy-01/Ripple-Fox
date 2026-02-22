@@ -1,4 +1,5 @@
 import rect27 from '../assets/Rectangle-27.png';
+import FloatingDots from './FloatingDots';
 
 const topSteps = [
   {
@@ -31,31 +32,15 @@ const bottomSteps = [
   },
 ];
 
-const numStyle: React.CSSProperties = {
-  fontFamily: 'system-ui, sans-serif',
-  fontSize: '20px',
-  fontWeight: 500,
-  color: '#b0b8c8',
-  lineHeight: 1,
-  display: 'block',
-  marginBottom: '8px',
-  letterSpacing: '0.04em',
-};
 
-const cardStyle: React.CSSProperties = {
-  background: '#f0f2f5',
-  border: '1px solid #e2e6ec',
-  borderRadius: '16px',
-  padding: '20px 22px',
-  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.18), 0 2px 8px rgba(0, 0, 0, 0.10)',
-};
 
 export default function OurMethodSection() {
   return (
     <section
       id="method"
-      className="bg-white px-6 py-20 md:px-16 lg:px-24 overflow-hidden"
+      className="relative bg-white px-6 py-20 md:px-16 lg:px-24 overflow-hidden"
     >
+      <FloatingDots color="blue" />
       <div className="mx-auto max-w-screen-xl">
         <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:gap-16">
 
@@ -106,8 +91,8 @@ export default function OurMethodSection() {
               <div className="relative" style={{ width: '55%', zIndex: 10 }}>
                 {topSteps.map((step, i) => (
                   <div key={step.number}>
-                    <div style={cardStyle}>
-                      <span style={numStyle}>{step.number}</span>
+                    <div className="method-card">
+                      <span className="method-num" style={{ fontFamily: 'system-ui, sans-serif', fontSize: '20px', fontWeight: 500, lineHeight: 1, display: 'block', marginBottom: '8px', letterSpacing: '0.04em', color: '#b0b8c8', transition: 'color 0.3s ease' }}>{step.number}</span>
                       <h3 className="text-sm font-bold text-[#060d1f] mb-1.5 leading-snug">
                         {step.title}
                       </h3>
@@ -163,8 +148,8 @@ export default function OurMethodSection() {
             {/* Steps 04–05 — full width of right panel, 2-col */}
             <div className="grid grid-cols-2 gap-3">
               {bottomSteps.map((step) => (
-                <div key={step.number} style={cardStyle}>
-                  <span style={numStyle}>{step.number}</span>
+                <div key={step.number} className="method-card">
+                  <span className="method-num" style={{ fontFamily: 'system-ui, sans-serif', fontSize: '20px', fontWeight: 500, lineHeight: 1, display: 'block', marginBottom: '8px', letterSpacing: '0.04em', color: '#b0b8c8', transition: 'color 0.3s ease' }}>{step.number}</span>
                   <h3 className="text-sm font-bold text-[#060d1f] mb-1.5 leading-snug">
                     {step.title}
                   </h3>

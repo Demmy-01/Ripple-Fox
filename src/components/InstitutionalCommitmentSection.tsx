@@ -1,5 +1,6 @@
 import group12 from '../assets/Group-12.png';
 import conglomerate from '../assets/Conglomerate.jpeg';
+import FloatingDots from './FloatingDots';
 
 export default function InstitutionalCommitmentSection() {
   return (
@@ -14,9 +15,10 @@ export default function InstitutionalCommitmentSection() {
     >
       {/* Dark navy overlay */}
       <div
-        className="w-full px-6 py-16 md:px-16 lg:px-24"
+        className="relative w-full px-6 py-16 md:px-16 lg:px-24 overflow-hidden"
         style={{ background: 'rgba(10, 25, 60, 0.82)' }}
       >
+        <FloatingDots color="white" />
         <div className="mx-auto max-w-screen-xl">
 
           {/* Heading — centered top */}
@@ -58,11 +60,13 @@ export default function InstitutionalCommitmentSection() {
               data-reveal="right"
               data-delay="300"
             >
-              <img
-                src={group12}
-                alt="Ripple Fox institutional commitment"
-                className="w-full max-w-xl object-contain"
-              />
+              <div className="w-full max-w-xl rounded-2xl overflow-hidden cursor-pointer" style={{ aspectRatio: 'auto' }}>
+                <img
+                  src={group12}
+                  alt="Ripple Fox institutional commitment"
+                  className="w-full h-full object-contain transition-transform duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] hover:scale-90"
+                />
+              </div>
             </div>
 
           </div>

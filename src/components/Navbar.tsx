@@ -55,11 +55,11 @@ export default function Navbar() {
       ref={menuRef}
       style={{
         background: scrolled || menuOpen
-          ? 'rgba(6, 13, 31, 0.95)'
+          ? 'rgba(6, 13, 31, 0.35)'
           : 'transparent',
-        backdropFilter: scrolled || menuOpen ? 'blur(12px)' : 'none',
-        WebkitBackdropFilter: scrolled || menuOpen ? 'blur(12px)' : 'none',
-        borderBottom: scrolled || menuOpen ? '1px solid rgba(255,255,255,0.08)' : 'none',
+        backdropFilter: scrolled || menuOpen ? 'blur(8px)' : 'none',
+        WebkitBackdropFilter: scrolled || menuOpen ? 'blur(8px)' : 'none',
+        borderBottom: scrolled || menuOpen ? '1px solid rgba(255,255,255,0.06)' : 'none',
       }}
     >
       <div className="mx-auto flex max-w-screen-xl items-center justify-between px-8 py-5">
